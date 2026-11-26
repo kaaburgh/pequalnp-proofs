@@ -1,0 +1,78 @@
+{
+ "target": [
+  84,
+  98,
+  140,
+  161,
+  266,
+  273
+ ],
+ "candidates": 33,
+ "K": 13,
+ "shards": {
+  "0-3": {
+   "lo": 0,
+   "hi": 3,
+   "status": "UNSAT",
+   "variants": {
+    "and:0,4": {
+     "status": "UNSAT",
+     "vars": 5447,
+     "clauses": 48066,
+     "cnf": "/workspace/output/pm33_k13_0_3_andand(0, 4).cnf"
+    },
+    "or:0,4": {
+     "status": "UNSAT",
+     "vars": 5447,
+     "clauses": 48066,
+     "cnf": "/workspace/output/pm33_k13_0_3_oror(0, 4).cnf"
+    },
+    "or:0,0": {
+     "status": "UNSAT",
+     "vars": 5447,
+     "clauses": 48066,
+     "cnf": "/workspace/output/pm33_k13_0_3_oror(0, 0).cnf"
+    },
+    "and:0,0": {
+     "status": "UNSAT",
+     "vars": 5447,
+     "clauses": 48066,
+     "cnf": "/workspace/output/pm33_k13_0_3_andand(0, 0).cnf"
+    }
+   }
+  },
+  "4-6": {
+   "lo": 4,
+   "hi": 6,
+   "status": "UNSAT",
+   "variants": {
+    "and:0,4": {
+     "status": "UNSAT",
+     "vars": 5616,
+     "clauses": 48368,
+     "cnf": "/workspace/output/pm33_k13_4_6_andand(0, 4).cnf"
+    },
+    "or:0,4": {
+     "status": "UNSAT",
+     "vars": 5616,
+     "clauses": 48368,
+     "cnf": "/workspace/output/pm33_k13_4_6_oror(0, 4).cnf"
+    },
+    "or:0,0": {
+     "status": "UNSAT",
+     "vars": 5616,
+     "clauses": 48368,
+     "cnf": "/workspace/output/pm33_k13_4_6_oror(0, 0).cnf"
+    },
+    "and:0,0": {
+     "status": "UNSAT",
+     "vars": 5616,
+     "clauses": 48368,
+     "cnf": "/workspace/output/pm33_k13_4_6_andand(0, 0).cnf"
+    }
+   }
+  }
+ },
+ "circuit": null,
+ "sat": false
+}
