@@ -27,7 +27,15 @@ evaluating it on all 128 inputs.  The encoding is the one of
 * that gate is true at some input with the bits `0`, `1` and `6` clear (the
   program picks one of the sixteen such inputs with a one-hot selector).
 
-    sha256 of the program: see the commit message of this branch
+    sha256 of the program: dc0bf58110f22265a338ddb6cda054de1d06b61bda9b0b9dd655e759504d4377
+
+(The exact hash is printed by the program itself and is the value to use in the
+release; it is the hash of this file in the branch, `methods/find/search_7cycle_shape.py`.)
+
+What the machine says on this machine: shard 0 is UNSAT after a few minutes.
+The other shards do not finish in 600 CPU seconds here, so the search is run
+with a longer budget; the emptiness of the range does not depend on those
+runs, because the argument below settles every shard at once.
 
 ## Why no such circuit can exist, by hand
 

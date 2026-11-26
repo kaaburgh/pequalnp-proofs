@@ -102,13 +102,16 @@ def build_shard_cnf(shard, target, rows, types=("and", "or", "not")):
 
 def main():
     timeout = int(sys.argv[1]) if len(sys.argv) > 1 else 1800
+    first = int(sys.argv[2]) if len(sys.argv) > 2 else 0
+    last = int(sys.argv[3]) if len(sys.argv) > 3 else 8
+    tag = sys.argv[4] if len(sys.argv) > 4 else ""
     target = target_table()
     rows = list(range(1 << N))
     print(f"function: seven-cycle on {N} edges, {len(rows)} inputs, {GATES} gates", flush=True)
     verdict = {}
-    for shard in range(9):
+    for shard in range(first, last + 1):
         clauses, nv, info = build_shard_cnf(shard, target, rows)
-        path = f"/workspace/output/c7shape_{shard}.cnf"
+        path = f"/workspace/output/c7shape{tag}_{shard}.cnf"
         write_dimacs(clauses, nv, path)
         model, status = run_kissat(path, timeout)
         print(f"shard {shard}: vars={nv} clauses={len(clauses)} -> {status}", flush=True)
@@ -119,7 +122,7 @@ def main():
             print("   witness:", gates, "verified:", ok, flush=True)
             if ok:
                 json.dump({"n": N, "gates": gates, "output": N + GATES - 1},
-                          open("/workspace/output/c7shape_witness.json", "w"))
+                          open(f"/workspace/output/c7shape_witness{tag}.json", "w"))
                 print("SAVED WITNESS for shard", shard, flush=True)
                 break
         os.remove(path)
@@ -128,7 +131,7 @@ def main():
     print("VERDICT:", json.dumps(verdict), flush=True)
     print("sha256 of this program:", digest, flush=True)
     json.dump({"verdict": verdict, "sha256": digest},
-              open("/workspace/output/c7shape_verdict.json", "w"))
+              open(f"/workspace/output/c7shape_verdict{tag}.json", "w"))
 
 
 if __name__ == "__main__":
